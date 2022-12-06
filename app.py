@@ -5,16 +5,16 @@ from faker import Faker
 from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import SyncGrant
 
-app = Flask(__name__)
+application = Flask(__name__)
 fake = Faker()
 
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/token')
+@application.route('/token')
 def generate_token():
     # get credentials from environment variables
     account_sid = os.getenv('TWILIO_ACCOUNT_SID')
